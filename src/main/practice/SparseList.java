@@ -161,7 +161,8 @@ public class SparseList<T> implements List<T>, Iterable<T> {
 
   @Override
   public Iterator<T> iterator() {
-    return new SparseListIterator();
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // Walks the logical positions, not the stored nodes. The cursor is the next
@@ -174,26 +175,14 @@ public class SparseList<T> implements List<T>, Iterable<T> {
 
     @Override
     public boolean hasNext() {
-      return cursor < size;   // positions remain even when no nodes do
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
 
     @Override
     public T next() {
-      if (modCount != expectedModCount) {
-        throw new ConcurrentModificationException();
-      }
-      if (!hasNext()) {
-        throw new NoSuchElementException();
-      }
-      T value;
-      if (current != null && current.index == cursor) {
-        value = current.value;   // a node stores this position
-        current = current.next;  // consume it
-      } else {
-        value = defaultValue;    // nothing stored here, so it is the default
-      }
-      cursor++;
-      return value;
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
   }
 }

@@ -10,15 +10,14 @@ public class MathSequence implements Iterable<Integer> {
 
   // Throws IllegalArgumentException if n is not positive.
   public MathSequence(int n) {
-    if (n <= 0) {
-      throw new IllegalArgumentException("start must be positive");
-    }
-    this.start = n;
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   @Override
   public Iterator<Integer> iterator() {
-    return new SequenceIterator();
+    // TODO: Implement me
+    throw new UnsupportedOperationException("TODO: Implement me");
   }
 
   // The whole state is the current value and a finished flag. next() hands out the
@@ -30,23 +29,14 @@ public class MathSequence implements Iterable<Integer> {
 
     @Override
     public boolean hasNext() {
-      return !finished;
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
 
     @Override
     public Integer next() {
-      if (!hasNext()) {
-        throw new NoSuchElementException();
-      }
-      int value = current;
-      if (current == 1) {
-        finished = true;  // we just handed out the final 1
-      } else if (current % 2 == 0) {
-        current = current / 2;
-      } else {
-        current = current * 3 + 1;
-      }
-      return value;
+      // TODO: Implement me
+      throw new UnsupportedOperationException("TODO: Implement me");
     }
   }
 }
