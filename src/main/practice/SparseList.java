@@ -164,9 +164,7 @@ public class SparseList<T> implements List<T>, Iterable<T> {
     return new SparseListIterator();
   }
 
-  // Walks the logical positions, not the stored nodes. The cursor is the next
-  // position to report; current is the next stored node not yet passed. As an inner
-  // class it reads head, size, defaultValue, and modCount directly.
+  // Walks the logical positions, not the stored nodes.
   private class SparseListIterator implements Iterator<T> {
     private int cursor = 0;                    // next logical position to return
     private Node<T> current = head.next;       // next stored node, or null

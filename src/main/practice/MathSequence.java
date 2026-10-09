@@ -21,9 +21,6 @@ public class MathSequence implements Iterable<Integer> {
     return new SequenceIterator();
   }
 
-  // The whole state is the current value and a finished flag. next() hands out the
-  // current value, then computes the one after it — unless the value was 1, which is
-  // where the sequence ends.
   private class SequenceIterator implements Iterator<Integer> {
     private int current = start;
     private boolean finished = false;
