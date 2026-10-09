@@ -1,8 +1,6 @@
 package practice;
 
-import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import listadt.List;
@@ -17,13 +15,11 @@ public class SparseList<T> implements List<T>, Iterable<T> {
   private Node<T> head;     // front sentinel; the real nodes follow it
   private T defaultValue;   // the value assumed at any position we do not store
   private int size;         // the logical length of the list
-  private int modCount;     // counts structural changes, so the iterator can fail fast
 
   public SparseList(T defaultValue) {
     this.defaultValue = defaultValue;
     this.head = new Node<>(-1, null);   // sentinel: not a real position
     this.size = 0;
-    this.modCount = 0;
   }
 
   @Override
@@ -35,7 +31,6 @@ public class SparseList<T> implements List<T>, Iterable<T> {
   public void add(T value) {
     int index = size;
     size++;
-    modCount++;   // a structural change
 
     if (Objects.equals(value, defaultValue)) {
       return;     // a default value stores nothing: no node, no work
@@ -73,7 +68,6 @@ public class SparseList<T> implements List<T>, Iterable<T> {
     if (Objects.equals(value, defaultValue)) {
       if (hasNode) {
         prev.next = current.next;       // remove the node: position returns to default
-        modCount++;                     // a node was dropped: a structural change
       }
     } else if (hasNode) {
       current.value = value;            // a node is already here: just update it
@@ -81,7 +75,6 @@ public class SparseList<T> implements List<T>, Iterable<T> {
       Node<T> node = new Node<>(index, value);
       node.next = current;              // insert the new node between prev and current
       prev.next = node;
-      modCount++;                       // a node was inserted: a structural change
     }
   }
 
@@ -145,7 +138,6 @@ public class SparseList<T> implements List<T>, Iterable<T> {
       current = current.next;
     }
     size--;
-    modCount++;   // a structural change
   }
 
   private static class Node<T> {
@@ -165,14 +157,8 @@ public class SparseList<T> implements List<T>, Iterable<T> {
     throw new UnsupportedOperationException("TODO: Implement me");
   }
 
-  // Walks the logical positions, not the stored nodes. The cursor is the next
-  // position to report; current is the next stored node not yet passed. As an inner
-  // class it reads head, size, defaultValue, and modCount directly.
+  // Walks the logical positions, not the stored nodes.
   private class SparseListIterator implements Iterator<T> {
-    private int cursor = 0;                    // next logical position to return
-    private Node<T> current = head.next;       // next stored node, or null
-    private int expectedModCount = modCount;   // the list's count when this walk began
-
     @Override
     public boolean hasNext() {
       // TODO: Implement me
