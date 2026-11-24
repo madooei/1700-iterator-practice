@@ -1,4 +1,4 @@
-package listadt;
+package list;
 
 /**
  * A List is an ordered, indexed collection of elements. Each element keeps the

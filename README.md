@@ -17,7 +17,7 @@ code/
     junit-platform-console-standalone-6.1.0.jar
   src/
     main/
-      listadt/
+      list/
         List.java                       # the List ADT contract
       practice/
         SparseList.java                 # the sparse list, made iterable
@@ -42,7 +42,7 @@ code/
 
 ## What's here
 
-- `listadt.List<T>` — the List ADT contract, which `SparseList` implements.
+- `list.List<T>` — the List ADT contract, which `SparseList` implements.
 - `practice.SparseList<T>` — the sparse list from the List ADT practice, now implementing `Iterable<T>`. Its iterator moves a position cursor and a node pointer together, and fails fast when the list changes during an iteration.
 - `practice.MathSequence` — implements `Iterable<Integer>`. Its iterator keeps only the current value and a finished flag.
 - `demo.SparseListDemo`, `demo.MathSequenceDemo` — one demo per solution class, each walking its iterator with an enhanced `for` loop.

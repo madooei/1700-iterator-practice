@@ -3,7 +3,7 @@ package practice;
 import java.util.Iterator;
 import java.util.Objects;
 
-import listadt.List;
+import list.List;
 
 /**
  * An implementation of the List ADT where nearly every position holds the same default value.
