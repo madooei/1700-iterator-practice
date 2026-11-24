@@ -1,4 +1,6 @@
-package practice;
+package demo;
+
+import practice.SparseList;
 
 /** A demo of the SparseList iterator: an enhanced for loop over the full logical sequence. */
 public final class SparseListDemo {
@@ -16,9 +18,10 @@ public final class SparseListDemo {
     list.set(3, 5);
     list.set(7, 2);
 
+    // Expect 0 0 0 5 0 0 0 2.
     System.out.print("sparse list: ");
-    for (Integer v : list) {
-      System.out.print(v + " ");   // 0 0 0 5 0 0 0 2
+    for (Integer value : list) {
+      System.out.print(value + " ");
     }
     System.out.println();
   }
