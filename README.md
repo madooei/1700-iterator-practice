@@ -40,7 +40,7 @@ code/
 - `scripts/test.sh practice.MathSequenceTest` — compiles everything and runs only that test class. Use this while you are working on one problem and the other is still empty.
 - `scripts/run.sh demo.SparseListDemo` — compiles everything and runs that one demo. Every class you implement has its own demo, `<Class>Demo`, so you can run one before you start the other.
 
-## What's here
+## Contents
 
 - `list.List<T>` — the List ADT contract, which `SparseList` implements.
 - `practice.SparseList<T>` — the sparse list from the List ADT practice, now implementing `Iterable<T>`. Its iterator moves a position cursor and a node pointer together, and fails fast when the list changes during an iteration.
